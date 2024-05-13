@@ -1,5 +1,6 @@
 // @ts-check
 import withNuxt from './.nuxt/eslint.config.mjs'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default withNuxt(
   {
@@ -61,5 +62,10 @@ export default withNuxt(
     rules: {
       'vue/require-v-for-key': 'off'
     }
-  }
+  },
+  stylistic.configs.customize({
+    flat: true,
+    braceStyle: '1tbs',
+    commaDangle: 'never'
+  })
 )
