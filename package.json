@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint:script": "eslint '**/*.{js,mjs,cjs,ts,vue}'"
+    "lint:script": "eslint '**/*.{js,mjs,cjs,ts,vue}'",
+    "lint:style": "stylelint **/*.{css,scss,vue} --ignore-path .gitignore"
   },
   "dependencies": {
     "nuxt": "^3.11.2",
@@ -17,9 +18,15 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.3.12",
+    "@nuxtjs/stylelint-module": "^5.2.0",
     "@stylistic/eslint-plugin": "^2.1.0",
     "eslint": "^8.57.0",
+    "postcss-html": "^1.7.0",
     "sass": "^1.77.1",
+    "stylelint": "^16.5.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
     "typescript": "^5.4.5",
     "vue-tsc": "^1.8.27"
   }
