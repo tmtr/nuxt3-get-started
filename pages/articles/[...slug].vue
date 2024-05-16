@@ -23,4 +23,11 @@ const pageTitle = computed(() => {
 const supervisor = computed(() => {
   return data.value?.supervisor ?? null
 })
+
+// NOTE: title や description などの一般的な SEO 対策の meta 設定には useSeoMeta で簡潔に書ける
+//       https://nuxt.com/docs/getting-started/seo-meta#useseometa
+useSeoMeta({
+  title: `${pageTitle.value}`,
+  description: data.value ? data.value.lead : ''
+})
 </script>
