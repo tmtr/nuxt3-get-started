@@ -1,4 +1,12 @@
 import crypto from 'crypto'
+import { resolve } from 'path'
+import fs from 'fs'
+
+const routes = fs.readdirSync(resolve(__dirname, 'content/articles'))
+  .filter(file => file !== '.gitkeep')
+  .map((article) => {
+    return `/articles/${article.replace(/.\w+$/, '')}`
+  })
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -21,6 +29,20 @@ export default defineNuxtConfig({
 
   devtools: {
     enabled: true
+  },
+
+  generate: {
+    // NOTE: 各記事へのリンク一覧がなく、Nuxt が自動でクロールしてルートを生成することができないため、
+    //       明示的に各記事のルートを設定しておく必要がある
+    routes
+  },
+
+  nitro: {
+    routeRules: {
+      // NOTE: build 時に `/` をレンダリングしない
+      //       https://github.com/nuxt/nuxt/issues/24228#issuecomment-1931309360
+      '/': { prerender: false }
+    }
   },
 
   typescript: {
