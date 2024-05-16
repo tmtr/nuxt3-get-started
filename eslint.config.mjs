@@ -1,6 +1,6 @@
 // @ts-check
-import withNuxt from './.nuxt/eslint.config.mjs'
 import stylistic from '@stylistic/eslint-plugin'
+import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
   {
@@ -30,11 +30,13 @@ export default withNuxt(
         'error',
         {
           selector: 'default',
-          format: ['camelCase', 'PascalCase', 'UPPER_CASE']
+          format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+          leadingUnderscore: 'allow'
         },
         {
           selector: 'variable',
-          format: ['camelCase', 'UPPER_CASE', 'PascalCase']
+          format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+          leadingUnderscore: 'allow'
         },
         {
           selector: 'parameter',
@@ -50,6 +52,12 @@ export default withNuxt(
         {
           selector: 'typeLike',
           format: ['PascalCase']
+        },
+        // REF: https://typescript-eslint.io/rules/naming-convention/#ignore-properties-that-require-quotes
+        {
+          selector: 'objectLiteralProperty',
+          modifiers: ['requiresQuotes'],
+          format: null
         }
       ],
       '@typescript-eslint/no-empty-interface': 'off'
