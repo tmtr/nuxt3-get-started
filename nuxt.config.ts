@@ -2,6 +2,23 @@ import crypto from 'crypto'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    // Ref: https://nuxt.com/docs/getting-started/seo-meta#defaults
+    //      https://nuxt.com/docs/api/nuxt-config#head
+    head: {
+      title: 'Nuxt3 への移行テスト',
+      htmlAttrs: {
+        lang: 'ja'
+      },
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap' }
+      ]
+    }
+  },
+
   devtools: {
     enabled: true
   },
